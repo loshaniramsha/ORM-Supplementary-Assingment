@@ -53,12 +53,31 @@ public class Main {
         System.out.println(result.toString());*/
 
         //(02)
-        Query query= session.createQuery("update Book b set b.price=b.price*1.1 where b.author.id=:authorId");
+/*        Query query= session.createQuery("update Book b set b.price=b.price*1.1 where b.author.id=:authorId");
         query.setParameter("authorId","A1");
         int result= query.executeUpdate();
-        System.out.println("Result: "+result);
+        System.out.println("Result: "+result);*/
 
         //(03)
+
+        //(04)
+
+    /*    Query query= session.createQuery("select avg (price) from Book");
+         Double avg= (Double) query.getSingleResult();
+        System.out.println(avg);*/
+
+        //(05)
+
+      /*  Query query= session.createQuery("select a.id,count (b.id)from Author a join Book b on a.id=b.author.id group by a.id");
+        List<Object[]> result=query.getResultList();
+        for (Object[] objects : result) {
+            System.out.println(objects[0]+" "+objects[1]);
+        }*/
+
+        //(06)
+
+
+
 
 
 
