@@ -76,9 +76,25 @@ public class Main {
 
         //(06)
 
+/*        Query query= session.createQuery("select b.tittle from Book b join Author a on b.author.id=a.id where a.country=:countryName");
+        query.setParameter("countryName","India");
+        List result=query.getResultList();
+        for (Object o : result) {
+            System.out.println(o);
+        }*/
 
 
+        //(07)
 
+
+        //(10)
+
+        Query query = session.createQuery("SELECT a.name FROM Author a WHERE ( SELECT COUNT(b.id) FROM Book b WHERE a.id = b.author.id ) > ( SELECT AVG(authorBookCount) FROM ( SELECT COUNT(b.id) AS authorBookCount FROM Book b GROUP BY b.author.id ))");
+        List<String> resultList = query.getResultList();
+
+        for (String s : resultList) {
+            System.out.println(s);
+        }
 
 
         transaction.commit();
